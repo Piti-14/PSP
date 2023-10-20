@@ -1,18 +1,17 @@
 package Bloque2_ProgramacionMultihilo.Practicas;
 
-public class CalculoPrimos_vector_Bloques {
+public class CalculoPrimos_vector_Completo {
     public static void main(String args[]) {
         int numHebras;
         long vectorNumeros[] = {
-                200000033L, 200000039L, 200000051L, 200000069L,
-                200000081L, 200000083L, 200000089L, 200000093L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
-                4L, 4L, 4L, 4L, 4L, 4L, 4L, 4L
+                200000033L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000039L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000051L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000069L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000081L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000083L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000089L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
+                200000093L, 4L, 4L, 4L, 4L, 4L, 4L, 4L,
         };
 
 

@@ -1,6 +1,6 @@
 package Bloque2_ProgramacionMultihilo.Practicas;
 
-import static Bloque2_ProgramacionMultihilo.Practicas.CalculoPrimos_vector_Bloques.esPrimo;
+import static Bloque2_ProgramacionMultihilo.Practicas.CalculoPrimos_vector_Completo.esPrimo;
 
 public class MiHebraBloques extends Thread{
     private int idHebra, numHebras;

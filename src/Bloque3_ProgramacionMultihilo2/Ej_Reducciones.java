@@ -1,8 +1,11 @@
 package Bloque3_ProgramacionMultihilo2;
 
 public class Ej_Reducciones {
-
     public static void main(String[] args) {
+
+        long t1, t2;
+        double tt;
+
         int numHebras = 4;
         double vector[] = new double[1000000];
         for (int i = 0; i < vector.length; i++) {
@@ -11,6 +14,26 @@ public class Ej_Reducciones {
         Acumula a = new Acumula();
 
         MiHebra hebras[] = new MiHebra[numHebras];
+        t1 = System.nanoTime();
+
+        for (int i = 0; i < numHebras; i++){
+            hebras[i] = new MiHebra(i, numHebras, vector, a);
+            hebras[i].start();
+        }
+
+        for (int i = 0; i < numHebras; i++){
+            try{
+                hebras[i].join();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        t2 = System.nanoTime();
+        tt = ((double) (t2 - t1)) / 1.0e9;
+
+        System.out.println("Valor acumulado: " + a.dameResultado());
+        System.out.println("Tiempo cíclico (seg.):\t\t\t" + tt);
     }
 }
 class MiHebra extends Thread {
@@ -24,19 +47,21 @@ class MiHebra extends Thread {
         this.a = a;
     }
     public void run () {
+        double valor = 0.0;
         for ( int i = miId; i < vector.length; i += numHebras ) {
-            a.acumulaValor ( vector [ i ] );
+            valor += vector[i];
         }
+        a.acumulaValor(valor);
     }
 }
 class Acumula {
     double suma = 0.0;
 
-    void acumulaValor(double valor) {
+    synchronized void acumulaValor(double valor) {
         this.suma += valor;
     }
 
-    double dameResultado() {
+    synchronized double dameResultado() {
         return this.suma;
     }
 }
